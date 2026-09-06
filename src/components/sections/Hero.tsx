@@ -47,26 +47,19 @@ export function Hero({ onWatchDemo }: HeroProps) {
             </span>
           </div>
 
-          <h1 className="mt-6 max-w-xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-            <MaskedHeading
-              text="Build better."
-              src="/hero.jpg"
-              fillScale={1.1}
-              parallax={14}
-              trigger="hover"
-              as="span"
-              className="inline-block mr-3"
-            />
-            <MaskedHeading
-              text="Work smarter."
-              src="/hero.jpg"
-              fillScale={1.15}
-              parallax={22}
-              trigger="hover"
-              as="span"
-              className="inline-block"
-            />
-          </h1>
+          <MaskedHeading
+            text="Build better. Work smarter."
+            tag="h1"
+            src="/hero.jpg"
+            align="left"
+            weight={800}
+            textScale={0.095}
+            parallax={26}
+            drift={18}
+            reveal="rise"
+            trigger="view"
+            className="mt-6 max-w-xl font-display leading-[1.08] tracking-tight"
+          />
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
             NOVA brings your team's projects, automations, and reporting into one unified workspace —
