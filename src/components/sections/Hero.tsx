@@ -1,5 +1,6 @@
 import { ArrowRight, PlayCircle, CheckCircle2, TrendingUp, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { MaskedHeading } from '../ui/MaskedHeading';
 import { scrollToSection } from '../../lib/utils';
 
 interface HeroProps {
@@ -46,11 +47,25 @@ export function Hero({ onWatchDemo }: HeroProps) {
             </span>
           </div>
 
-          <h1 className="mt-6 max-w-xl font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink dark:text-paper sm:text-5xl lg:text-6xl">
-            Build better.{' '}
-            <span className="bg-gradient-to-r from-indigo via-[#6374EE] to-amber bg-clip-text text-transparent">
-              Work smarter.
-            </span>
+          <h1 className="mt-6 max-w-xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <MaskedHeading
+              text="Build better."
+              src="/hero.jpg"
+              fillScale={1.1}
+              parallax={14}
+              trigger="hover"
+              as="span"
+              className="inline-block mr-3"
+            />
+            <MaskedHeading
+              text="Work smarter."
+              src="/hero.jpg"
+              fillScale={1.15}
+              parallax={22}
+              trigger="hover"
+              as="span"
+              className="inline-block"
+            />
           </h1>
 
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">

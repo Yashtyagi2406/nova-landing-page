@@ -106,14 +106,15 @@ export function MaskedHeading({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={getRevealStyle()}
-      className={cn('relative inline-block max-w-full overflow-hidden', className)}
+      className={cn(
+        'relative inline-block max-w-full',
+        reveal === 'wipe' && 'overflow-hidden',
+        className
+      )}
     >
       {mediaType === 'image' ? (
         <Component
-          className={cn(
-            'bg-cover bg-center bg-clip-text text-transparent font-display font-black tracking-tight select-none',
-            'transition-transform duration-500 ease-out'
-          )}
+          className="bg-cover bg-center bg-clip-text text-transparent inline-block transition-transform duration-500 ease-out"
           style={{
             backgroundImage: `url(${src})`,
             transform: `scale(${scale}) translateY(${parallaxOffset}px)`,
