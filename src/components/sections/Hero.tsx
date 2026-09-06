@@ -2,12 +2,16 @@ import { ArrowRight, PlayCircle, CheckCircle2, TrendingUp, Sparkles } from 'luci
 import { Button } from '../ui/Button';
 import { MaskedHeading } from '../ui/MaskedHeading';
 import { scrollToSection } from '../../lib/utils';
+import { useTheme } from '../../hooks/useTheme';
 
 interface HeroProps {
   onWatchDemo: () => void;
 }
 
 export function Hero({ onWatchDemo }: HeroProps) {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
     <section id="top" className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-32">
       {/* Radiant ambient glow mesh */}
@@ -48,9 +52,12 @@ export function Hero({ onWatchDemo }: HeroProps) {
           </div>
 
           <MaskedHeading
+            key={theme}
             text="Build better. Work smarter."
             tag="h1"
-            src="/hero.jpg"
+            src={isDark ? '/hero-dark.jpg' : '/hero.jpg'}
+            brightness={isDark ? 1.05 : 1}
+            saturation={isDark ? 1.15 : 1}
             align="left"
             weight={800}
             textScale={0.095}
