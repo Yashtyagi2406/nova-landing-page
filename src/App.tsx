@@ -15,6 +15,7 @@ import { Pricing } from './components/sections/Pricing';
 import { FAQ } from './components/sections/FAQ';
 import { FinalCTA } from './components/sections/FinalCTA';
 import { DemoModal } from './components/ui/DemoModal';
+import { ScrollReveal } from './components/ui/ScrollReveal';
 
 function App() {
   const [demoOpen, setDemoOpen] = useState(false);
@@ -25,16 +26,36 @@ function App() {
         <Navbar />
         <main>
           <Hero onWatchDemo={() => setDemoOpen(true)} />
-          <TrustedBy />
-          <Features />
-          <ProductAbout />
-          <HowItWorks />
-          <Statistics />
-          <Solutions />
-          <Testimonials />
-          <Pricing />
-          <FAQ />
-          <FinalCTA />
+          <ScrollReveal>
+            <TrustedBy />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Features />
+          </ScrollReveal>
+          <ScrollReveal>
+            <ProductAbout />
+          </ScrollReveal>
+          <ScrollReveal>
+            <HowItWorks />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Statistics />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Solutions />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Testimonials />
+          </ScrollReveal>
+          <ScrollReveal>
+            <Pricing />
+          </ScrollReveal>
+          <ScrollReveal>
+            <FAQ />
+          </ScrollReveal>
+          <ScrollReveal>
+            <FinalCTA />
+          </ScrollReveal>
         </main>
         <Footer />
         <BackToTopButton />
