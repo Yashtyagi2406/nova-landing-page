@@ -111,49 +111,71 @@ export function MaskedHeading({
       {mediaType === 'image' ? (
         <Component
           className={cn(
-            'bg-cover bg-center bg-clip-text text-transparent font-display font-extrabold tracking-tight',
+            'bg-cover bg-center bg-clip-text text-transparent font-display font-black tracking-tight select-none',
             'transition-transform duration-500 ease-out'
           )}
           style={{
             backgroundImage: `url(${src})`,
             transform: `scale(${scale}) translateY(${parallaxOffset}px)`,
             WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
           }}
         >
           {text}
         </Component>
       ) : (
         <div className="relative inline-block w-full">
-          {/* Accessible text placeholder for layout & SEO */}
+          {/* Accessible hidden text placeholder for layout calculation & SEO */}
           <Component
-            className="font-display font-extrabold tracking-tight opacity-0 select-none pointer-events-none"
+            className="font-display font-black tracking-tight opacity-0 select-none pointer-events-none"
             aria-hidden="true"
           >
             {text}
           </Component>
 
-          {/* Video masked via SVG clipPath */}
+          {/* Cross-browser SVG Masked Video */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox="0 0 1000 200"
+            className="absolute inset-0 w-full h-full pointer-events-none select-none"
+            viewBox="0 0 1000 180"
             preserveAspectRatio="xMidYMid meet"
           >
             <defs>
               <clipPath id={clipId}>
                 <text
                   x="50%"
-                  y="55%"
+                  y="52%"
                   textAnchor="middle"
-                  dominantBaseline="middle"
-                  className="font-display font-black tracking-tight"
-                  style={{
-                    fontSize: text.length > 25 ? '72px' : text.length > 15 ? '92px' : '116px',
-                  }}
+                  dominantBaseline="central"
+                  fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif"
+                  fontWeight="900"
+                  letterSpacing="-0.03em"
+                  fontSize={
+                    text.length > 24
+                      ? '68px'
+                      : text.length > 18
+                      ? '84px'
+                      : text.length > 12
+                      ? '104px'
+                      : '124px'
+                  }
                 >
                   {text}
                 </text>
               </clipPath>
             </defs>
+
+            {/* Static poster fallback for instant render & Safari compatibility */}
+            {(poster || src) && (
+              <image
+                href={poster || src}
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMid slice"
+                clipPath={`url(#${clipId})`}
+              />
+            )}
+
+            {/* Video layer inside clipPath */}
             <foreignObject
               x="0"
               y="0"
