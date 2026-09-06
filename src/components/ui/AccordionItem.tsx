@@ -33,25 +33,33 @@ export function AccordionItem({ question, answer, isOpen, onToggle, id }: Accord
   }, [isOpen]);
 
   return (
-    <div className="border-b border-line dark:border-line-dark">
+    <div className="border-b border-line/80 dark:border-white/10 transition-colors">
       <h3>
         <button
           id={`faq-header-${id}`}
           aria-expanded={isOpen}
           aria-controls={`faq-panel-${id}`}
           onClick={onToggle}
-          className="flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo rounded-md"
+          className="group flex w-full items-center justify-between gap-4 py-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo rounded-lg transition-colors"
         >
-          <span className="font-display text-base font-medium text-ink dark:text-paper">
+          <span className={cn(
+            "font-display text-base font-medium transition-colors",
+            isOpen ? "text-indigo dark:text-indigo-light font-semibold" : "text-ink dark:text-paper group-hover:text-indigo dark:group-hover:text-indigo-light"
+          )}>
             {question}
           </span>
-          <Plus
-            className={cn(
-              'h-5 w-5 flex-shrink-0 text-indigo transition-transform duration-300 ease-out',
-              isOpen && 'rotate-45'
-            )}
-            aria-hidden="true"
-          />
+          <span className={cn(
+            "flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300",
+            isOpen ? "bg-indigo text-white shadow-[0_0_12px_rgba(76,95,224,0.4)]" : "bg-ink/5 dark:bg-paper/10 text-muted group-hover:bg-indigo/10 group-hover:text-indigo"
+          )}>
+            <Plus
+              className={cn(
+                'h-4 w-4 transition-transform duration-300 ease-out',
+                isOpen && 'rotate-45'
+              )}
+              aria-hidden="true"
+            />
+          </span>
         </button>
       </h3>
       <div

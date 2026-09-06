@@ -9,10 +9,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'bg-indigo text-white hover:bg-indigo-dark active:scale-[0.98] shadow-sm hover:shadow-md',
+    'relative overflow-hidden bg-gradient-to-r from-indigo via-indigo to-[#5E6FE8] text-white shadow-[0_2px_10px_rgba(76,95,224,0.25)] hover:shadow-[0_0_24px_rgba(76,95,224,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]',
   secondary:
-    'bg-transparent text-ink dark:text-paper border border-ink/15 dark:border-paper/20 hover:border-ink/35 dark:hover:border-paper/40',
-  ghost: 'bg-transparent text-ink dark:text-paper hover:bg-ink/5 dark:hover:bg-paper/10',
+    'bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md text-ink dark:text-paper border border-line dark:border-line-dark hover:border-indigo/40 hover:bg-white dark:hover:bg-surface-dark hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] shadow-xs',
+  ghost: 'bg-transparent text-ink dark:text-paper hover:bg-ink/5 dark:hover:bg-paper/10 active:scale-[0.98]',
 };
 
 const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {

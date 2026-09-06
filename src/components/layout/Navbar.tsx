@@ -32,7 +32,7 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
           scrolled
-            ? 'bg-paper/90 dark:bg-ink/90 backdrop-blur-md border-b border-line dark:border-line-dark'
+            ? 'bg-paper/85 dark:bg-ink/85 backdrop-blur-xl border-b border-line/80 dark:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.3)]'
             : 'bg-transparent border-b border-transparent'
         )}
       >
@@ -46,9 +46,14 @@ export function Navbar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="font-display text-lg font-semibold tracking-tight text-ink dark:text-paper rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
+            className="group flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-ink dark:text-paper rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
           >
-            NOVA
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo via-indigo to-indigo-light text-white shadow-[0_2px_12px_rgba(76,95,224,0.4)] transition-transform duration-300 group-hover:scale-105">
+              <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </span>
+            <span>NOVA</span>
           </a>
 
           <ul className="hidden items-center gap-8 md:flex">
@@ -64,13 +69,16 @@ export function Navbar() {
                       handleNavClick(link.href);
                     }}
                     className={cn(
-                      'text-sm font-medium transition-colors rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo',
+                      'relative text-sm font-medium transition-colors py-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo',
                       isActive
-                        ? 'text-indigo'
+                        ? 'text-indigo dark:text-indigo-light font-semibold'
                         : 'text-ink/70 dark:text-paper/70 hover:text-ink dark:hover:text-paper'
                     )}
                   >
                     {link.label}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-indigo dark:bg-indigo-light" />
+                    )}
                   </a>
                 </li>
               );

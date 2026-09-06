@@ -46,10 +46,17 @@ export function Footer() {
       <div className="mx-auto max-w-8xl px-6 py-16 lg:px-10">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-6">
           <div className="col-span-2 md:col-span-2">
-            <span className="font-display text-lg font-semibold">NOVA</span>
-            <p className="mt-3 max-w-xs text-sm text-paper/60">
-              Build better. Work smarter. The workspace where teams plan, automate, and
-              ship without losing track of anything.
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo via-indigo to-indigo-light text-white shadow-[0_2px_10px_rgba(76,95,224,0.4)]">
+                <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </span>
+              <span className="font-display text-lg font-bold">NOVA</span>
+            </div>
+            <p className="mt-3.5 max-w-xs text-sm text-paper/60 leading-relaxed">
+              Build better. Work smarter. The modern workspace where teams plan, automate, and
+              ship high-impact products without status overhead.
             </p>
             <div className="mt-6 flex gap-3">
               <a

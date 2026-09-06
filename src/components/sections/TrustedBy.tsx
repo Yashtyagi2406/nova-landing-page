@@ -1,21 +1,29 @@
 import { trustedLogos } from '../../data/logos';
 
 export function TrustedBy() {
+  // Duplicate for seamless infinite marquee loop
+  const marqueeItems = [...trustedLogos, ...trustedLogos, ...trustedLogos];
+
   return (
-    <section className="border-y border-line dark:border-line-dark bg-white dark:bg-surface-dark py-10">
+    <section className="relative overflow-hidden border-y border-line/80 dark:border-white/10 bg-white/60 dark:bg-surface-dark/60 backdrop-blur-md py-8">
       <div className="mx-auto max-w-8xl px-6 lg:px-10">
-        <p className="text-center text-xs font-medium uppercase tracking-wide text-muted">
-          Trusted by teams at
+        <p className="text-center text-xs font-semibold uppercase tracking-wider text-muted/80">
+          Trusted by over 4,000+ forward-thinking teams worldwide
         </p>
-        <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 md:grid-cols-6">
-          {trustedLogos.map((logo) => (
-            <div
-              key={logo.id}
-              className="flex items-center justify-center font-display text-sm font-semibold text-ink/30 dark:text-paper/30 grayscale transition-all duration-300 hover:text-ink/70 dark:hover:text-paper/70 hover:grayscale-0"
-            >
-              {logo.name}
-            </div>
-          ))}
+
+        {/* Marquee Container with edge mask */}
+        <div className="relative mt-6 overflow-hidden mask-marquee">
+          <div className="flex w-max animate-marquee items-center gap-12 sm:gap-16 py-2">
+            {marqueeItems.map((logo, idx) => (
+              <div
+                key={`${logo.id}-${idx}`}
+                className="flex items-center gap-2 font-display text-sm font-semibold tracking-tight text-ink/40 dark:text-paper/40 transition-colors duration-300 hover:text-indigo dark:hover:text-indigo-light cursor-default"
+              >
+                <span className="h-2 w-2 rounded-full bg-indigo/40" />
+                <span className="whitespace-nowrap">{logo.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

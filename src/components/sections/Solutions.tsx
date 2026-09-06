@@ -1,25 +1,30 @@
 import { useState } from 'react';
 import { solutions } from '../../data/solutions';
 import { cn } from '../../lib/utils';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Layers } from 'lucide-react';
+import { Badge } from '../ui/Badge';
 
 export function Solutions() {
   const [activeId, setActiveId] = useState(solutions[0].id);
   const active = solutions.find((s) => s.id === activeId) ?? solutions[0];
 
   return (
-    <section id="solutions" className="border-y border-line dark:border-line-dark bg-white dark:bg-surface-dark py-24 lg:py-32">
+    <section id="solutions" className="relative overflow-hidden border-y border-line/80 dark:border-white/10 bg-white/70 dark:bg-surface-dark/70 backdrop-blur-xl py-24 lg:py-32">
       <div className="mx-auto max-w-8xl px-6 lg:px-10">
         <div className="max-w-xl">
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink dark:text-paper sm:text-4xl">
-            Built around how your team already works
+          <Badge tone="indigo">Tailored Workflows</Badge>
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink dark:text-paper sm:text-4xl">
+            Built around how your team{' '}
+            <span className="bg-gradient-to-r from-indigo to-indigo-light bg-clip-text text-transparent">
+              already works
+            </span>
           </h2>
           <p className="mt-4 text-lg text-muted">
-            The same workspace, tuned to the workflow each team actually runs.
+            The same unified workspace, dynamically configured to match the exact operational cadence of your department.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[280px_1fr]">
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] lg:gap-12">
           <div
             role="tablist"
             aria-label="Team solutions"
@@ -50,13 +55,18 @@ export function Solutions() {
                   }
                 }}
                 className={cn(
-                  'whitespace-nowrap rounded-lg px-4 py-3 text-left text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo',
+                  'whitespace-nowrap rounded-xl px-4 py-3.5 text-left text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo',
                   activeId === s.id
-                    ? 'bg-indigo/10 text-indigo-dark dark:text-indigo-light'
-                    : 'text-muted hover:bg-ink/5 dark:hover:bg-paper/5'
+                    ? 'bg-indigo/10 text-indigo font-semibold border border-indigo/20 shadow-xs'
+                    : 'text-muted hover:bg-ink/5 dark:hover:bg-paper/5 border border-transparent'
                 )}
               >
-                {s.team}
+                <div className="flex items-center justify-between">
+                  <span>{s.team}</span>
+                  {activeId === s.id && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-indigo" />
+                  )}
+                </div>
               </button>
             ))}
           </div>
@@ -67,20 +77,36 @@ export function Solutions() {
             role="tabpanel"
             aria-labelledby={`solution-tab-${active.id}`}
             tabIndex={0}
-            className="animate-fade-up rounded-2xl border border-line dark:border-line-dark p-8 lg:p-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
+            className="animate-fade-up rounded-2xl border border-line/80 dark:border-white/10 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-xl p-8 lg:p-10 shadow-[0_16px_40px_-15px_rgba(20,22,28,0.1)] dark:shadow-[0_16px_40px_-15px_rgba(0,0,0,0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo"
           >
-            <h3 className="font-display text-2xl font-semibold text-ink dark:text-paper">
+            <div className="flex items-center gap-2 text-indigo">
+              <Layers className="h-5 w-5" />
+              <span className="text-xs font-semibold uppercase tracking-wider">Department Blueprint</span>
+            </div>
+
+            <h3 className="mt-4 font-display text-2xl font-semibold text-ink dark:text-paper sm:text-3xl">
               {active.headline}
             </h3>
-            <p className="mt-4 max-w-2xl text-muted leading-relaxed">{active.description}</p>
-            <ul className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
-              {active.points.map((point) => (
-                <li key={point} className="flex items-center gap-2 text-sm text-ink dark:text-paper">
-                  <CheckCircle2 className="h-4 w-4 text-indigo" aria-hidden="true" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <p className="mt-4 max-w-2xl text-muted leading-relaxed text-base">{active.description}</p>
+
+            <div className="mt-8 border-t border-line/80 dark:border-white/10 pt-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted mb-4">
+                Core Capabilities & Automations
+              </p>
+              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {active.points.map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-center gap-3 rounded-xl border border-line/60 dark:border-white/5 bg-paper/50 dark:bg-ink/30 px-3.5 py-2.5 text-sm font-medium text-ink dark:text-paper"
+                  >
+                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-indigo/10 text-indigo">
+                      <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
