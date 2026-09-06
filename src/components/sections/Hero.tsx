@@ -93,7 +93,7 @@ export function Hero({ onWatchDemo }: HeroProps) {
             aria-hidden="true"
           />
 
-          <div className="animate-float rounded-2xl border border-line/80 dark:border-white/10 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-xl p-5 shadow-[0_24px_50px_-15px_rgba(20,22,28,0.18)] dark:shadow-[0_24px_50px_-15px_rgba(0,0,0,0.6)] transition-all duration-300">
+          <div className="animate-float rounded-2xl border border-line/80 dark:border-white/10 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-xl p-5 pb-12 sm:pb-16 shadow-[0_24px_50px_-15px_rgba(20,22,28,0.18)] dark:shadow-[0_24px_50px_-15px_rgba(0,0,0,0.6)] transition-all duration-300">
             {/* Window bar */}
             <div className="flex items-center justify-between border-b border-line/80 dark:border-white/10 pb-3.5">
               <div className="flex items-center gap-1.5">
@@ -177,7 +177,7 @@ export function Hero({ onWatchDemo }: HeroProps) {
           </div>
 
           {/* Floating Velocity Badge */}
-          <div className="absolute -bottom-6 -left-4 hidden sm:flex items-center gap-3 rounded-2xl border border-line/80 dark:border-white/10 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-xl p-4 shadow-[0_12px_30px_-8px_rgba(20,22,28,0.2)] dark:shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)]">
+          <div className="absolute -bottom-6 -left-4 hidden sm:flex items-center gap-3 rounded-2xl border border-line/80 dark:border-white/10 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-xl px-4 py-3 shadow-[0_12px_30px_-8px_rgba(20,22,28,0.2)] dark:shadow-[0_12px_30px_-8px_rgba(0,0,0,0.6)] z-10">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo/10 text-indigo dark:text-indigo-light">
               <TrendingUp className="h-5 w-5" aria-hidden="true" />
             </div>
