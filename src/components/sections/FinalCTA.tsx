@@ -4,13 +4,13 @@ import { GhostFibers } from '../ui/GhostFibers';
 
 export function FinalCTA() {
   return (
-    <section id="final-cta" className="relative overflow-hidden bg-[#0A0C10] py-28 lg:py-36 text-paper">
+    <section id="final-cta" className="relative overflow-hidden py-28 lg:py-36 text-paper bg-[#0A0C10]">
       {/* GhostFibers WebGL Shader Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+      <div className="absolute inset-0 z-0">
         <GhostFibers
           lineColor="#140E35"
           glowColor="#4C5FE0"
-          speed={0.2}
+          speed={0.25}
           scale={2}
           rotation={0}
           rotationSpeed={0.25}
@@ -26,38 +26,19 @@ export function FinalCTA() {
           lineSpacing={2}
           lineSharpness={16}
           glowFalloff={10}
-          glowIntensity={1.6}
+          glowIntensity={1.8}
           brightness={2}
-          blueBoost={1.25}
+          blueBoost={1.3}
           vignette={0.85}
           grain={0.05}
           dpr={1}
         />
       </div>
 
-      {/* Cosmic Aurora Background Glow */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-50"
-        style={{
-          background:
-            'radial-gradient(ellipse at 50% 20%, rgba(76, 95, 224, 0.45) 0%, rgba(232, 163, 61, 0.18) 45%, transparent 75%)',
-        }}
-        aria-hidden="true"
-      />
+      {/* Subtle overlay so text remains crisp and highly legible */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-black/40 backdrop-blur-[0.5px]" aria-hidden="true" />
 
-      {/* Grid Pattern overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18] -z-10"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, #8B8D98 1px, transparent 1px), linear-gradient(to bottom, #8B8D98 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-          maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)',
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-10">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-10">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md shadow-xs">
           <Sparkles className="h-3.5 w-3.5 text-amber" />
           <span>Ready to accelerate your workflow?</span>

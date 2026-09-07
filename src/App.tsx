@@ -6,6 +6,7 @@ import { BackToTopButton } from './components/layout/BackToTopButton';
 import { Hero } from './components/sections/Hero';
 import { TrustedBy } from './components/sections/TrustedBy';
 import { Features } from './components/sections/Features';
+import { FiberShowcase } from './components/sections/FiberShowcase';
 import { ProductAbout } from './components/sections/ProductAbout';
 import { HowItWorks } from './components/sections/HowItWorks';
 import { Statistics } from './components/sections/Statistics';
@@ -31,6 +32,9 @@ function App() {
           </ScrollReveal>
           <ScrollReveal>
             <Features />
+          </ScrollReveal>
+          <ScrollReveal>
+            <FiberShowcase />
           </ScrollReveal>
           <ScrollReveal>
             <ProductAbout />
