@@ -17,7 +17,7 @@ import { FAQ } from './components/sections/FAQ';
 import { FinalCTA } from './components/sections/FinalCTA';
 import { DemoModal } from './components/ui/DemoModal';
 import { ScrollReveal } from './components/ui/ScrollReveal';
-import { GhostFibers } from './components/ui/GhostFibers';
+import { Iridescence } from './components/ui/Iridescence';
 
 function AppContent() {
   const [demoOpen, setDemoOpen] = useState(false);
@@ -26,39 +26,18 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen text-ink transition-colors duration-300 dark:text-paper selection:bg-indigo selection:text-white">
-      {/* Whole-Website Background: Fixed WebGL GhostFibers */}
+      {/* Whole-Website Background: Fixed WebGL Iridescence */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-        <GhostFibers
-          lineColor={isDark ? '#140E35' : '#312E81'}
-          glowColor={isDark ? '#3437A0' : '#4C5FE0'}
-          speed={0.18}
-          scale={2.2}
-          rotation={0}
-          rotationSpeed={0.2}
-          layers={4}
-          waveAmplitude={0.015}
-          waveFrequency={3}
-          waveSpeed={0.15}
-          layerSpeed={0.08}
-          twist={0.1}
-          twistFrequency={5}
-          twistSpeed={1.2}
-          lineFrequency={5}
-          lineSpacing={2}
-          lineSharpness={16}
-          glowFalloff={10}
-          glowIntensity={1.8}
-          brightness={2}
-          blueBoost={1.25}
-          vignette={0.75}
-          grain={0.05}
-          dpr={1}
-          lightMode={!isDark}
+        <Iridescence
+          color={isDark ? [0.38, 0.42, 0.95] : [0.92, 0.94, 1.0]}
+          mouseReact={true}
+          amplitude={0.12}
+          speed={0.8}
         />
-        {/* Subtle translucent veil ensuring text readability while letting fibers shine through */}
+        {/* Subtle translucent veil ensuring text readability while letting fluid caustics shine through */}
         <div
           className={`absolute inset-0 transition-colors duration-300 ${
-            isDark ? 'bg-ink/35' : 'bg-paper/55'
+            isDark ? 'bg-ink/55' : 'bg-paper/60'
           }`}
         />
       </div>
