@@ -26,18 +26,18 @@ function AppContent() {
 
   return (
     <div className="relative min-h-screen text-ink transition-colors duration-300 dark:text-paper selection:bg-indigo selection:text-white">
-      {/* Whole-Website Background: Fixed WebGL Iridescence */}
+      {/* Whole-Website Background: Fixed WebGL Iridescence (Tuned for subtle ambient lighting) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
         <Iridescence
-          color={isDark ? [0.38, 0.42, 0.95] : [0.92, 0.94, 1.0]}
+          color={isDark ? [0.30, 0.34, 0.78] : [0.92, 0.94, 1.0]}
           mouseReact={true}
-          amplitude={0.12}
-          speed={0.8}
+          amplitude={0.09}
+          speed={0.65}
         />
-        {/* Subtle translucent veil ensuring text readability while letting fluid caustics shine through */}
+        {/* Ambient translucent veil keeping background restrained, editorial, and 15-20% softer */}
         <div
           className={`absolute inset-0 transition-colors duration-300 ${
-            isDark ? 'bg-ink/55' : 'bg-paper/60'
+            isDark ? 'bg-[#0B0D13]/70 backdrop-blur-[0.5px]' : 'bg-paper/60'
           }`}
         />
       </div>

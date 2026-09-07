@@ -9,9 +9,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary:
-    'relative overflow-hidden bg-gradient-to-r from-indigo via-indigo to-[#5E6FE8] text-white shadow-[0_2px_10px_rgba(76,95,224,0.25)] hover:shadow-[0_0_24px_rgba(76,95,224,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]',
+    'relative overflow-hidden bg-indigo hover:bg-indigo-light text-white font-medium shadow-[0_2px_10px_rgba(76,95,224,0.3)] hover:shadow-[0_4px_20px_rgba(76,95,224,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]',
   secondary:
-    'bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md text-ink dark:text-paper border border-line dark:border-line-dark hover:border-indigo/40 hover:bg-white dark:hover:bg-surface-dark hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] shadow-xs',
+    'bg-white/80 dark:bg-white/[0.06] backdrop-blur-xl text-ink dark:text-slate-200 border border-line/80 dark:border-white/[0.12] hover:border-indigo/40 dark:hover:border-white/25 hover:bg-white dark:hover:bg-white/[0.1] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] shadow-xs hover:shadow-sm',
   ghost: 'bg-transparent text-ink dark:text-paper hover:bg-ink/5 dark:hover:bg-paper/10 active:scale-[0.98]',
 };
 
