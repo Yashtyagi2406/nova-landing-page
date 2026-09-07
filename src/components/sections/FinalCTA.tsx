@@ -1,42 +1,18 @@
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { GhostFibers } from '../ui/GhostFibers';
 
 export function FinalCTA() {
   return (
-    <section id="final-cta" className="relative overflow-hidden py-28 lg:py-36 text-paper bg-[#0A0C10]">
-      {/* GhostFibers WebGL Shader Background */}
-      <div className="absolute inset-0 z-0">
-        <GhostFibers
-          lineColor="#140E35"
-          glowColor="#4C5FE0"
-          speed={0.25}
-          scale={2}
-          rotation={0}
-          rotationSpeed={0.25}
-          layers={4}
-          waveAmplitude={0.015}
-          waveFrequency={3}
-          waveSpeed={0.15}
-          layerSpeed={0.08}
-          twist={0.1}
-          twistFrequency={5}
-          twistSpeed={1.2}
-          lineFrequency={5}
-          lineSpacing={2}
-          lineSharpness={16}
-          glowFalloff={10}
-          glowIntensity={1.8}
-          brightness={2}
-          blueBoost={1.3}
-          vignette={0.85}
-          grain={0.05}
-          dpr={1}
-        />
-      </div>
-
-      {/* Subtle overlay so text remains crisp and highly legible */}
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-black/40 backdrop-blur-[0.5px]" aria-hidden="true" />
+    <section id="final-cta" className="relative overflow-hidden py-28 lg:py-36 text-paper border-t border-line/80 dark:border-white/10">
+      {/* Cosmic Aurora Glow accent */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60 dark:opacity-40"
+        style={{
+          background:
+            'radial-gradient(ellipse at 50% 30%, rgba(76, 95, 224, 0.35) 0%, rgba(232, 163, 61, 0.12) 50%, transparent 75%)',
+        }}
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-10">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-white backdrop-blur-md shadow-xs">
