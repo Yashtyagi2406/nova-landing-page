@@ -1,12 +1,43 @@
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { GhostFibers } from '../ui/GhostFibers';
 
 export function FinalCTA() {
   return (
     <section id="final-cta" className="relative overflow-hidden bg-[#0A0C10] py-28 lg:py-36 text-paper">
+      {/* GhostFibers WebGL Shader Background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 opacity-70">
+        <GhostFibers
+          lineColor="#140E35"
+          glowColor="#4C5FE0"
+          speed={0.2}
+          scale={2}
+          rotation={0}
+          rotationSpeed={0.25}
+          layers={4}
+          waveAmplitude={0.015}
+          waveFrequency={3}
+          waveSpeed={0.15}
+          layerSpeed={0.08}
+          twist={0.1}
+          twistFrequency={5}
+          twistSpeed={1.2}
+          lineFrequency={5}
+          lineSpacing={2}
+          lineSharpness={16}
+          glowFalloff={10}
+          glowIntensity={1.6}
+          brightness={2}
+          blueBoost={1.25}
+          vignette={0.85}
+          grain={0.05}
+          dpr={1}
+        />
+      </div>
+
       {/* Cosmic Aurora Background Glow */}
       <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50"
         style={{
           background:
             'radial-gradient(ellipse at 50% 20%, rgba(76, 95, 224, 0.45) 0%, rgba(232, 163, 61, 0.18) 45%, transparent 75%)',
