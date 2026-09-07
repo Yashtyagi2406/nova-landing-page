@@ -7,20 +7,15 @@ import { useEffect, useRef, useState } from 'react';
  */
 export function useOnScreen<T extends HTMLElement>(threshold = 0.2) {
   const ref = useRef<T | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
 
   useEffect(() => {
+    if (isVisible) return;
     const node = ref.current;
     if (!node) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setIsVisible(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,7 +29,7 @@ export function useOnScreen<T extends HTMLElement>(threshold = 0.2) {
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, isVisible]);
 
   return { ref, isVisible };
 }
