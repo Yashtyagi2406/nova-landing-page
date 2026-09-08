@@ -51,8 +51,8 @@
 
   /* Marquee fade masks */
   .mask-marquee {
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   }
 
   /* Shimmer button animation overlay */
