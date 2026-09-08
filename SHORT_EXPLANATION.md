@@ -21,12 +21,7 @@ illustration). Instead:
   stays sharp-edged; only genuinely interactive surfaces (cards, buttons,
   modals) get rounded corners — so radius signals "you can act on this"
   instead of being applied uniformly everywhere.
-- **Motion**: one orchestrated fade-up on the hero at load, plus motion that
-  responds to user action (accordion expand, modal open, carousel transition,
-  hover lift). I deliberately did not add scroll-triggered fade-ins on every
-  section, since that reads as a generic AI-generated default rather than a
-  deliberate choice — the one exception is the statistics counter, where the
-  count-up is the actual content, not decoration.
+- **Motion**: orchestrated fade-up on the hero at load, plus responsive user interactions (accordion expand, modal open, carousel transition, hover lift). Sections feature amplified scroll-triggered reveals (`ScrollReveal` component using `IntersectionObserver` with `-90px` bottom margin, 80px+ vertical glide, subtle scaling, and focal blur that snaps into clarity as you scroll), with strict `prefers-reduced-motion` compliance. Statistics also count up dynamically on scroll into view.
 
 ## Technology Choices
 

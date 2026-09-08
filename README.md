@@ -50,7 +50,7 @@ FAQ (6 questions), Final CTA, Footer.
 **Bonus features** — all implemented:
 - Dark/light mode toggle (React context, persisted to `localStorage`, respects system preference on first load)
 - Animated statistics (count-up on scroll into view via `IntersectionObserver`, respects `prefers-reduced-motion`)
-- Scroll-triggered entrance animation on the hero (single orchestrated moment, not per-section fade spam)
+- Scroll animations (smooth, amplified scroll-triggered reveals across all sections with upward translation, focal blur, and scale transitions via `IntersectionObserver`)
 - Testimonial carousel (autoplay, pause on hover, dot navigation, arrow controls)
 - Monthly/annual pricing toggle (updates price and shows a savings badge)
 - Demo modal (focus-trapped, closable via Escape/backdrop/close button, rendered via portal)
