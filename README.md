@@ -5,7 +5,7 @@ AI-powered productivity platform that helps teams manage projects, automate
 repetitive tasks, and collaborate efficiently. Built for the Front-End
 Development Intern assignment.
 
-**Live demo:** _add your deployed URL here after publishing (e.g. Vercel/Netlify)_
+**Live demo:** [https://nova-landing-page-tan.vercel.app](https://nova-landing-page-tan.vercel.app)
 
 ---
 
