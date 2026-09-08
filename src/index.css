@@ -65,19 +65,31 @@
     );
     background-size: 200% 100%;
   }
+
+  /* Continuous Infinite Marquee */
+  @keyframes marquee-infinite {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-marquee-infinite {
+    display: flex;
+    width: max-content;
+    animation: marquee-infinite 24s linear infinite !important;
+    will-change: transform;
+  }
+
+  .animate-marquee-infinite:hover {
+    animation-play-state: paused;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
